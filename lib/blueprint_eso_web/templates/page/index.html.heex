@@ -1,1 +1,8 @@
-<h1 class="text-quality-legendary">Hello!</h1>
+<div id="server-switch" class="w-4/6 bg-discord-primary h-12 flex justify-start p-1 text-white text-3xl">
+  <div class="bg-white grow flex justify-center items-center text-gray-600">US</div>
+  <div class="hover:bg-white grow flex justify-center items-center">EU</div>
+</div>
+
+<ul class="w-full mt-8">
+  <%= render "_card.html", conn: @conn %>
+</ul>

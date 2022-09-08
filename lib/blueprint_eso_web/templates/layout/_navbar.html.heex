@@ -1,0 +1,18 @@
+<div class="bg-background-secondary py-2 shadow-3xl flex justify-center">
+  <navbar id="navbar" class="flex max-w-full justify-between w-4/6 items-center">
+    <%= link to: Routes.page_path(@conn, :index), class: "mt-1 select-none" do %>
+      <div class="inline-flex items-center">
+        <img src={ Routes.static_path(@conn, "/images/blueprint.png") } class="w-16 pointer-events-none" />
+      
+        <div class="mb-1 flex ml-2">
+          <h1 class="text-quality-epic text-4xl font-medium">Blueprint</h1>
+          <h1 class="text-quality-legendary text-4xl font-medium">ESO</h1>
+        </div>
+      </div>
+    <% end %>
+
+    <%= link to: "#discord", class: "text-gray-200 h-10 flex items-center justify-center px-6 rounded-full font-medium border-2 border-discord-primary hover:bg-discord-primary ease-in duration-150 select-none" do %>
+      Discord
+    <% end %>
+  </navbar>
+</div>

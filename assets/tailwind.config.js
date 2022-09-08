@@ -11,7 +11,18 @@ module.exports = {
   ],
   theme: {
     extend: {
+      boxShadow: {
+        '3xl': '0 0 10px 10px rgb(0 0 0 / 0.6)'
+      },
       colors: {
+        background: {
+          primary: '#090909',
+          secondary: '#161616'
+        },
+        card: {
+          primary: '#191919',
+          secondary: '#333333',
+        },
         quality: {
           superior: '#3A90FB',
           epic: '#A32FF4',
