@@ -10,6 +10,13 @@ defmodule BlueprintESOWeb.Router do
     plug :put_secure_browser_headers
   end
 
+  scope "/auth", BlueprintESOWeb do
+    pipe_through :browser
+
+    get "/discord", Auth.DiscordController, :request
+    get "/discord/callback", Auth.DiscordController, :callback
+  end
+
   pipeline :api do
     plug :accepts, ["json"]
   end
