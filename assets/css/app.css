@@ -11,3 +11,12 @@
 body {
     background-image: url('/images/background/eso-texture.png')
 }
+
+.progress-text {
+    color: white;
+    mix-blend-mode: difference;
+}
+
+.progress-bar-black {
+    mix-blend-mode: screen;
+}

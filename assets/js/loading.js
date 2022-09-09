@@ -1,6 +1,12 @@
-
-import "./jquery-3.6.1.min.js"
-
-setInterval(function() {
-    $('timout-bar').css('width', $('timout-bar').css('width') - 0.1);
-}, 16);
+interval = setInterval(function() {
+    percent = $('#timeout-bar').attr('percentage') - 1;
+    if (percent < 0) {
+        clearInterval(interval);
+        $('#timeout-back').removeClass('bg-white');
+        $('#timeout-back').addClass('bg-emerald-500');
+        $('#timeout-back').addClass('progress-bar-black');
+        return;
+    };
+    $('#timeout-bar').css('width', `${percent}%`)
+    $('#timeout-bar').attr('percentage', percent)
+}, 100);

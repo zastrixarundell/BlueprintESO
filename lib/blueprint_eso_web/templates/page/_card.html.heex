@@ -1,51 +1,29 @@
-<li class="bg-card-primary p-8 shadow-3xl flex items-center gap-x-8 mb-6">
-  <div class="flex grow flex-col border-r border-card-secondary pr-4">
-    <img src={ Routes.static_path(@conn, "/images/classes/nb.png") } class="h-14 absolute" alt="">
-    <div class="w-full flex justify-center">
-      <h3 class="text-gray-300 text-4xl w-9/12 text-center break-words">Ra'jiir The Uncertain</h3>
+<li class="bg-card-primary pt-8 shadow-3xl flex flex-col justify-between mb-6">
+  <div class="flex items-center gap-x-8 grow mx-8">
+    <div class="flex grow flex-col border-r border-card-secondary pr-4">
+      <img src={ Routes.static_path(@conn, "/images/classes/nb.png") } class="h-14 absolute" alt="">
+      <div class="w-full flex justify-center">
+        <h3 class="text-gray-300 text-4xl w-9/12 text-center break-words">Ra'jiir The Uncertain</h3>
+      </div>
+      <div class="flex justify-center items-center mt-10 progress-bar">
+        <span class="font-medium absolute progress-text">1 hour, 24 minutes</span>
+        <div class="w-full h-8 flex rounded overflow-hidden">
+          <div id="timeout-bar" class="bg-quality-superior linear duration-300 progress-bar-black" style="width: 100%" percentage="100"></div>
+          <div id="timeout-back" class="bg-white grow ease-in duration-500"></div>
+        </div>
+      </div>
     </div>
-    <div class="progress-bar mt-10 h-8 flex">
-      <div id="timeout-complete" class="bg-emerald-500 hidden w-full"></div>
-      <div id="timout-bar" class="bg-quality-epic" style="width: 100%"></div>
-      <div class="bg-white grow"></div>
+    <div class="flex gap-x-3.5">
+      <div class="bg-quality-epic w-16 h-16 flex items-center justify-center rounded">
+        <img src={ Routes.static_path(@conn, "/images/blueprint.png") } class="w-14" alt="">
+      </div>
+      <div class="bg-quality-superior w-16 h-16 flex items-center justify-center rounded">
+        <img src={ Routes.static_path(@conn, "/images/blueprint-superior.png") } class="w-14" alt="">
+      </div>
     </div>
   </div>
-  <div class="flex gap-x-3.5">
-    <div class="bg-quality-epic w-16 h-16 flex items-center justify-center">
-      <img src={ Routes.static_path(@conn, "/images/blueprint.png") } class="w-14" alt="">
-    </div>
-    <div class="bg-quality-superior w-16 h-16"></div>
-  </div>
-</li>
-
-<li class="bg-card-primary p-8 shadow-3xl flex items-center gap-x-8 mb-6">
-  <div class="flex grow flex-col border-r border-card-secondary pr-4">
-    <img src={ Routes.static_path(@conn, "/images/classes/necro.png") } class="h-14 absolute" alt="">
-    <div class="w-full flex justify-center">
-      <h3 class="text-gray-300 text-4xl w-9/12 text-center break-words">Shan'ra The Ceaseless</h3>
-    </div>
-    <div class="mt-10 h-8 bg-emerald-500 progress-bar"></div>
-  </div>
-  <div class="flex gap-x-3.5">
-    <div class="bg-quality-epic w-16 h-16 flex items-center justify-center">
-      <img src={ Routes.static_path(@conn, "/images/blueprint.png") } class="w-14" alt="">
-    </div>
-    <div class="bg-quality-superior w-16 h-16"></div>
-  </div>
-</li>
-
-<li class="bg-card-primary p-8 shadow-3xl flex items-center gap-x-8 mb-6">
-  <div class="flex grow flex-col border-r border-card-secondary pr-4">
-    <img src={ Routes.static_path(@conn, "/images/classes/nb.png") } class="h-14 absolute" alt="">
-    <div class="w-full flex justify-center">
-      <h3 class="text-gray-300 text-4xl w-9/12 text-center break-words">Qa'tesh The Nimble</h3>
-    </div>
-    <div class="mt-10 h-8 bg-emerald-500 progress-bar"></div>
-  </div>
-  <div class="flex gap-x-3.5">
-    <div class="bg-quality-epic w-16 h-16 flex items-center justify-center">
-      <img src={ Routes.static_path(@conn, "/images/blueprint.png") } class="w-14" alt="">
-    </div>
-    <div class="bg-quality-superior w-16 h-16"></div>
+  <div class="flex mt-8 h-10">
+    <button class="border-t border-card-secondary grow linear duration-300 hover:bg-card-secondary text-gray-300">Reset</button>
+    <button class="border-t border-card-secondary hover:border-red-500 grow linear duration-300 hover:bg-red-500 text-gray-300 hover:text-white">Delete</button>
   </div>
 </li>
