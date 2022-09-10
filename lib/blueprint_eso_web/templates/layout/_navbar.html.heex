@@ -11,7 +11,7 @@
       </div>
     <% end %>
 
-    <%= link to: "#discord", class: "text-gray-200 h-10 flex items-center justify-center px-6 rounded-full font-medium border-2 border-discord-primary hover:bg-discord-primary ease-in duration-150 select-none" do %>
+    <%= link to: Routes.discord_path(@conn, :request), class: "text-gray-200 h-10 flex items-center justify-center px-6 rounded-full font-medium border-2 border-discord-primary hover:bg-discord-primary ease-in duration-150 select-none" do %>
       Discord
     <% end %>
   </navbar>
