@@ -2,12 +2,25 @@ defmodule BlueprintESOWeb.Auth.DiscordController do
   use BlueprintESOWeb, :controller
   plug Ueberauth
 
+  alias BlueprintESO.Accounts
+
+  require IEx
+
   def callback(%{assigns: %{ueberauth_failure: _fails}} = _conn, _params) do
     IO.inspect("Well... something made a mistake, welp!")
   end
 
-  def callback(%{assigns: %{ueberauth_auth: auth}} = _conn, _params) do
+  def callback(%{assigns: %{ueberauth_auth: %Ueberauth.Auth{} = auth}} = conn, _params) do
     IO.inspect("Logged in! The auth code is")
     IO.inspect(auth)
+    IEx.pry()
+
+    case Accounts.create_or_update_discord(auth) do
+      {:ok, _} ->
+        conn
+        |> redirect(to: Routes.page_path(conn, :index))
+      {:error, _} ->
+        IO.inspect("Something done fucked up!")
+    end
   end
 end
