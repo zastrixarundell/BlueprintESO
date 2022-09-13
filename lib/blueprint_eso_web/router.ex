@@ -10,11 +10,21 @@ defmodule BlueprintESOWeb.Router do
     plug :put_secure_browser_headers
   end
 
+  pipeline :guardian do
+    plug BlueprintESOWeb.Authentication.Pipeline
+  end
+
   scope "/auth", BlueprintESOWeb do
     pipe_through :browser
 
     get "/discord", Auth.DiscordController, :request
     get "/discord/callback", Auth.DiscordController, :callback
+
+    scope "/" do
+      pipe_through :guardian
+      delete "/logout", Auth.DiscordController, :logout
+    end
+
   end
 
   pipeline :api do
@@ -22,7 +32,7 @@ defmodule BlueprintESOWeb.Router do
   end
 
   scope "/", BlueprintESOWeb do
-    pipe_through :browser
+    pipe_through [:browser, :guardian]
 
     get "/", PageController, :index
   end

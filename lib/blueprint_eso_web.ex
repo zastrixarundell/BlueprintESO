@@ -21,6 +21,8 @@ defmodule BlueprintESOWeb do
     quote do
       use Phoenix.Controller, namespace: BlueprintESOWeb
 
+      alias BlueprintESOWeb.Authentication
+
       import Plug.Conn
       alias BlueprintESOWeb.Router.Helpers, as: Routes
     end
