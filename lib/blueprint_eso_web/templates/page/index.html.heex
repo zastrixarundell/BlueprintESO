@@ -1,12 +1,18 @@
-<div id="server-switch" class="w-4/6 bg-discord-primary h-12 flex justify-start p-1 text-white text-3xl">
+<div id="server-switch" class="w-4/6 bg-discord-primary h-12 flex justify-start p-1 text-white text-3xl hidden">
   <div class="bg-white grow flex justify-center items-center text-gray-600">US</div>
   <div class="hover:bg-white grow flex justify-center items-center">EU</div>
 </div>
 
-<ul class="w-full mt-8">
-  <%= render "_card.html", conn: @conn %>
+<ul class="w-full mt-8 mb-8">
+  <%= render "_card.html", conn: @conn, characters: @characters %>
 </ul>
 
-<div class="h-48 w-48 bg-card-primary shadow-3xl mt-4 text-center flex items-center justify-center">
-  <div class="text-gray-300 plus font-bold text-4xl">Add</div>
+<%= link to: Routes.character_path(@conn, :new) do %>
+<div class="h-32 w-48 bg-card-primary shadow-3xl text-center flex items-center justify-center text-gray-200 text-3xl">
+ <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="48" height="48" viewBox="0 0 24 24" stroke-width="2" stroke="rgb(229, 231, 235)" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+    <line x1="12" y1="5" x2="12" y2="19"></line>
+    <line x1="5" y1="12" x2="19" y2="12"></line>
+  </svg> Add
 </div>
+<% end %>

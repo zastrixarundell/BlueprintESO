@@ -49,7 +49,8 @@ defmodule BlueprintESO.MixProject do
       {:plug_cowboy, "~> 2.5"},
       {:tailwind, "~> 0.1", runtime: Mix.env() == :dev},
       {:ueberauth, "~> 0.7"},
-      {:ueberauth_discord, "~> 0.6"}
+      {:ueberauth_discord, "~> 0.6"},
+      {:timex, "~> 3.7"}
     ]
   end
 

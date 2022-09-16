@@ -21,10 +21,6 @@ defmodule BlueprintESOWeb.Auth.DiscordController do
   end
 
   def callback(%{assigns: %{ueberauth_auth: %Ueberauth.Auth{} = auth}} = conn, _params) do
-    IO.inspect("Logged in! The auth code is")
-    IO.inspect(auth)
-    # IEx.pry()
-
     case Accounts.create_or_update_discord(auth) do
       {:ok, discord} ->
         conn

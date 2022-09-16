@@ -7,6 +7,7 @@ defmodule BlueprintESO.Accounts.Discord do
     field :refresh_token, :string
     field :token, :string
     field :uid, :string
+    has_many :characters, BlueprintESO.Accounts.Character
 
     timestamps()
   end

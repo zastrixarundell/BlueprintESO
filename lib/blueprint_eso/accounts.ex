@@ -6,7 +6,7 @@ defmodule BlueprintESO.Accounts do
   import Ecto.Query, warn: false
   alias BlueprintESO.Repo
 
-  alias BlueprintESO.Accounts.Discord
+  alias BlueprintESO.Accounts.{Character, Discord}
 
   @spec get_discord(integer() | String.t()) ::{:id, %Discord{}} | {:snowflake, %Discord{}} | {:error, :not_found}
   @doc """
@@ -122,5 +122,87 @@ defmodule BlueprintESO.Accounts do
   """
   def change_discord(%Discord{} = discord, attrs \\ %{}) do
     Discord.changeset(discord, attrs)
+  end
+
+  alias BlueprintESO.Accounts.Character
+
+  @doc """
+  Returns the list of characters for the account.
+
+  ## Examples
+
+      iex> list_characters(%Discord{})
+      [%Character{}, ...]
+
+  """
+  def list_account_characters(nil) do
+    []
+  end
+
+  def list_account_characters(%Discord{} = account) do
+    from(c in Character, where: c.discord_id == ^account.id, order_by: c.inserted_at)
+    |> Repo.all()
+  end
+
+  @spec get_character(any) :: {:error, nil} | {:ok, %Character{}}
+  def get_character(id) do
+    case Repo.get(Character, id) do
+      nil ->
+        {:error, nil}
+      data ->
+        {:ok, data}
+    end
+  end
+
+  @doc """
+  Creates a character.
+
+  ## Examples
+
+      iex> create_character(%{field: value})
+      {:ok, %Character{}}
+
+      iex> create_character(%{field: bad_value})
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def create_character(attrs \\ %{}) do
+    %Character{}
+    |> Character.changeset(attrs)
+    |> Repo.insert()
+  end
+
+  @doc """
+  Updates a character.
+
+  ## Examples
+
+      iex> update_character(character, %{field: new_value})
+      {:ok, %Character{}}
+
+      iex> update_character(character, %{field: bad_value})
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def update_character(%Character{} = character, attrs) do
+    character
+    |> Character.changeset(attrs)
+    |> Repo.update()
+  end
+
+  @doc """
+  Deletes a character.
+
+  ## Examples
+
+      iex> delete_character(character)
+      {:ok, %Character{}}
+
+      iex> delete_character(character)
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def delete_character(%Character{} = character) do
+    Repo.delete(character)
   end
 end

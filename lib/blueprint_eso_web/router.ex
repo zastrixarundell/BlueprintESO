@@ -14,6 +14,15 @@ defmodule BlueprintESOWeb.Router do
     plug BlueprintESOWeb.Authentication.Pipeline
   end
 
+  scope "/character", BlueprintESOWeb do
+    pipe_through [:guardian, :browser]
+
+    get "/new", CharacterController, :new
+    patch "/reset/:id", CharacterController, :reset
+    post "/cooldown/:id", CharacterController, :cooldown
+    delete "/:id", CharacterController, :delete
+  end
+
   scope "/auth", BlueprintESOWeb do
     pipe_through :browser
 

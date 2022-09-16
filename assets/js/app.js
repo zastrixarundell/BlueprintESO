@@ -42,9 +42,4 @@ liveSocket.connect()
 // >> liveSocket.disableLatencySim()
 window.liveSocket = liveSocket
 
-import jquery from "./jquery-3.6.1.min.js"
-
-window.jQuery = jquery;
-window.$      = jquery;
-
 import "./loading.js"

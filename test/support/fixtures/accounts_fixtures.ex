@@ -20,4 +20,21 @@ defmodule BlueprintESO.AccountsFixtures do
 
     discord
   end
+
+  @doc """
+  Generate a character.
+  """
+  def character_fixture(attrs \\ %{}) do
+    {:ok, character} =
+      attrs
+      |> Enum.into(%{
+        class: 42,
+        collected_at: ~N[2022-09-12 19:28:00],
+        collected_type: 42,
+        name: "some name"
+      })
+      |> BlueprintESO.Accounts.create_character()
+
+    character
+  end
 end
