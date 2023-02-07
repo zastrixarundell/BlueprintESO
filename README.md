@@ -1,6 +1,7 @@
 # BlueprintESO
 Phoenix app for management of blueprint cooldowns
 
+
 ![image](https://raw.githubusercontent.com/zastrixarundell/BlueprintESO/master/priv/static/images/blueprint.png)
 
 ## Details about the app
